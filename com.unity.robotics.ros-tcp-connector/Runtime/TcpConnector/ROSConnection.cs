@@ -479,9 +479,12 @@ namespace Unity.Robotics.ROSTCPConnector
 
         void Start()
         {
-            InitializeHUD();
+            if (m_ShowHUD)
+            {
+                InitializeHUD();
 
-            HudPanel.RegisterHeader(DrawHeaderGUI);
+                HudPanel.RegisterHeader(DrawHeaderGUI);
+            }
 
             if (listenForTFMessages)
                 TFSystem.GetOrCreateInstance();
