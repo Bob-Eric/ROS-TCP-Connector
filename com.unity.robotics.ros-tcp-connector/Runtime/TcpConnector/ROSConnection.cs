@@ -479,18 +479,19 @@ namespace Unity.Robotics.ROSTCPConnector
 
         void Start()
         {
-            if (m_ShowHUD)
-            {
-                InitializeHUD();
-
-                HudPanel.RegisterHeader(DrawHeaderGUI);
-            }
+            InitializeHUD();
+            HudPanel.RegisterHeader(DrawHeaderGUI);
 
             if (listenForTFMessages)
                 TFSystem.GetOrCreateInstance();
 
             if (ConnectOnStart)
                 Connect();
+        }
+        void OnDestroy()
+        {
+            HudPanel.ClearStaticContent();
+            Disconnect();
         }
 
         public void Connect(string ipAddress, int port)

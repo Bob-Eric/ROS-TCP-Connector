@@ -1,10 +1,4 @@
-using RosMessageTypes.Sensor;
-using RosMessageTypes.Std;
-using RosMessageTypes.Geometry;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace Unity.Robotics.ROSTCPConnector.MessageGeneration
 {
@@ -110,7 +104,7 @@ namespace Unity.Robotics.ROSTCPConnector.MessageGeneration
                 }
                 // --------------------------------------------------
                 // if diagonal after swap is zero . .
-                //if (Math.Abs(result[j][j]) < 1.0E-20) 
+                //if (Math.Abs(result[j][j]) < 1.0E-20)
                 //  return null; // consider a throw
 
                 for (int i = j + 1; i < n; ++i)
@@ -161,7 +155,7 @@ namespace Unity.Robotics.ROSTCPConnector.MessageGeneration
                         b[j] = 0.0;
                 }
 
-                double[] x = HelperSolve(lum, b); // 
+                double[] x = HelperSolve(lum, b); //
 
                 for (int j = 0; j < n; ++j)
                     result[j][i] = x[j];

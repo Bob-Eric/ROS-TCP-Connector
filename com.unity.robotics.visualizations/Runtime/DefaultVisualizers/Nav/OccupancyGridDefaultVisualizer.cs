@@ -148,7 +148,7 @@ public class OccupancyGridDefaultVisualizer : BaseVisualFactory<OccupancyGridMsg
             }
             else if (m_Message.info.width != m_Texture.width || m_Message.info.height != m_Texture.height)
             {
-                m_Texture.Resize((int)m_Message.info.width, (int)m_Message.info.height);
+                m_Texture.Reinitialize((int)m_Message.info.width, (int)m_Message.info.height);
             }
 
             m_Texture.SetPixelData(m_Message.data, 0);

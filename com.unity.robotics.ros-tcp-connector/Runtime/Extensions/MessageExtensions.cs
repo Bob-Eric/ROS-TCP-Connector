@@ -2,7 +2,6 @@ using RosMessageTypes.Sensor;
 using RosMessageTypes.Std;
 using RosMessageTypes.Geometry;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using RosMessageTypes.BuiltinInterfaces;
 using UnityEngine;
