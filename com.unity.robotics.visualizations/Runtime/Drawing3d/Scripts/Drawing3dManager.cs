@@ -47,11 +47,13 @@ namespace Unity.Robotics.Visualizations
         public Material UnlitColorMaterial => m_UnlitColorMaterial;
         public Material UnlitColorAlphaMaterial => m_UnlitColorAlphaMaterial;
         public Material UnlitPointCloudMaterial => m_UnlitPointCloudMaterial;
+        static int drawingLayer;
 
         void Awake()
         {
             s_Instance = this;
             m_Camera = Camera.main;
+            drawingLayer = gameObject.layer;
         }
 
         public void AddDirty(Drawing3d drawing)
@@ -68,6 +70,7 @@ namespace Unity.Robotics.Visualizations
         public static Drawing3d CreateDrawing(float duration = -1, Material material = null)
         {
             GameObject newDrawingObj = new GameObject("Drawing");
+            newDrawingObj.layer = drawingLayer;
             Drawing3d newDrawing = newDrawingObj.AddComponent<Drawing3d>();
             newDrawing.Init(instance, material != null ? material : instance.UnlitVertexColorMaterial, duration);
             instance.m_Drawings.Add(newDrawing);
