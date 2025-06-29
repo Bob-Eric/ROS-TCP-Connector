@@ -129,6 +129,14 @@ public class TFSystem
         return instance;
     }
 
+    public static void ClearStaticData()
+    {
+        if (instance != null)
+        {
+            instance.m_TFTopics.Clear();
+            instance = null;
+        }
+    }
     public IEnumerable<string> GetTransformNames(string tfTopic = "/tf")
     {
         return GetOrCreateTFTopic(tfTopic).GetTransformNames();

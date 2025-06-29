@@ -20,6 +20,10 @@ namespace Unity.Robotics.Visualizations
             if (color.a == 0)
                 color.a = 1;
         }
+        void OnDestroy()
+        {
+            TFSystem.ClearStaticData();
+        }
 
         void EnsureSettings(TFStream stream)
         {
