@@ -21,6 +21,7 @@ namespace Unity.Robotics.Visualizations
             GameObject newDrawingObj = new GameObject("PointCloud");
             if (parent != null)
             {
+                newDrawingObj.layer = parent.layer;
                 newDrawingObj.transform.parent = parent.transform;
                 newDrawingObj.transform.localPosition = Vector3.zero;
                 newDrawingObj.transform.localRotation = Quaternion.identity;
